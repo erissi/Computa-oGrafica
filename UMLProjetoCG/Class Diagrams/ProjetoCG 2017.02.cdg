@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ProjetoCG">
+  <ClassDiagramComponents>
+    <Class name="Arquivo" package="projetocg.M" visibility="public" xPosition="7.0" yPosition="109.0">
+      <Fields>
+        <Field name="numPontos" type="int" visibility="private"/>
+        <Field name="pontos" type="ArrayList&lt;Ponto&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="leitura" returnType="ArrayList&lt;Ponto&gt;" visibility="public">
+          <Argument type="String" name="caminho"/>
+        </Method>
+        <Method name="capturaPonto" returnType="Ponto" visibility="public">
+          <Argument type="String" name="linha"/>
+        </Method>
+        <Method name="setNumPontos" returnType="void" visibility="public">
+          <Argument type="int" name="n"/>
+        </Method>
+        <Method name="getNumPontos" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Operacao" package="projetocg.M" visibility="public" xPosition="395.0" yPosition="586.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="soma" returnType="Ponto" visibility="public">
+          <Argument type="Ponto" name="p1"/>
+          <Argument type="Ponto" name="p2"/>
+        </Method>
+        <Method name="subtracao" returnType="float[][]" visibility="public">
+          <Argument type="int" name="n"/>
+          <Argument type="int" name="m"/>
+          <Argument type="float" name="a"/>
+          <Argument type="float" name="b"/>
+        </Method>
+        <Method name="escalar" returnType="float" visibility="public">
+          <Argument type="Ponto" name="p1"/>
+          <Argument type="Ponto" name="p2"/>
+        </Method>
+        <Method name="multiplicacao" returnType="float[][]" visibility="public">
+          <Argument type="float" name="mA"/>
+          <Argument type="float" name="mB"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Transformacao" package="projetocg.M" visibility="public" xPosition="7.0" yPosition="800.0">
+      <Fields>
+        <Field name="op" type="Operacao" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="translacao" returnType="ArrayList&lt;Ponto&gt;" visibility="public">
+          <Argument type="Ponto" name="novo"/>
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="escala" returnType="ArrayList&lt;Ponto&gt;" visibility="public">
+          <Argument type="Ponto" name="novo"/>
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="rotacao" returnType="ArrayList&lt;Ponto&gt;" visibility="public">
+          <Argument type="int" name="ang"/>
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="calculaPontoCentral" returnType="Ponto" visibility="private">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="pegaXMaior" returnType="int" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="pegaYMaior" returnType="int" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="pegaXMenor" returnType="int" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="pegaYMenor" returnType="int" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="coordMenosPontoCentral" returnType="ArrayList&lt;Ponto&gt;" visibility="private">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+          <Argument type="Ponto" name="pCentral"/>
+        </Method>
+        <Method name="coordMaisPontoCentral" returnType="ArrayList&lt;Ponto&gt;" visibility="private">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+          <Argument type="Ponto" name="pCentral"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Ponto" package="projetocg.M" visibility="public" xPosition="425.0" yPosition="279.0">
+      <Fields>
+        <Field name="x" type="int" visibility="private"/>
+        <Field name="y" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="setY" returnType="void" visibility="public">
+          <Argument type="int" name="y"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Tela" package="projetocg.V" visibility="public" xPosition="805.0" yPosition="28.0">
+      <Fields>
+        <Field name="arqController" type="ArquivoController" visibility="private"/>
+        <Field name="transfController" type="TransformacaoController" visibility="private"/>
+        <Field name="pontosIniciais" type="ArrayList&lt;Ponto&gt;" visibility="private"/>
+        <Field name="pontosAtuais" type="ArrayList&lt;Ponto&gt;" visibility="private"/>
+        <Field name="f" type="JFrame" visibility="private"/>
+        <Field name="BotaoIR" type="javax.swing.JButton" visibility="private"/>
+        <Field name="buttonGroup1" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="buttonGroup2" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="escala" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jRadioButton1" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="jTextFieldLocal" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextFieldPontosAtuais" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jTextFieldPontosIniciais" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="rotacao" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="translacao" type="javax.swing.JRadioButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="rotacaoActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="escalaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="translacaoActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="mostraCoordenadas" returnType="void" visibility="public"/>
+        <Method name="preencheTxtComPontos" returnType="String" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="desenha" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontos"/>
+        </Method>
+        <Method name="BotaoIRActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="BresenhamPanel" package="projetocg.V" visibility="public" xPosition="7.0" yPosition="11.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Bresenham" package="projetocg.V" visibility="public" xPosition="7.0" yPosition="344.0">
+      <Fields>
+        <Field name="centerX" type="int" visibility="package" isFinal="true"/>
+        <Field name="pontosNovos" type="ArrayList&lt;Ponto&gt;" visibility="package"/>
+        <Field name="numPontos" type="int" visibility="package"/>
+        <Field name="w" type="int" visibility="package"/>
+        <Field name="h" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="pontosNovos"/>
+          <Argument type="int" name="numPontos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="paintComponent" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="plot" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="drawLine" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+          <Argument type="int" name="x1"/>
+          <Argument type="int" name="y1"/>
+          <Argument type="int" name="x2"/>
+          <Argument type="int" name="y2"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ArquivoController" package="projetocg.C" visibility="public" xPosition="384.0" yPosition="28.0">
+      <Fields>
+        <Field name="arq" type="Arquivo" visibility="private"/>
+        <Field name="pontos" type="ArrayList&lt;Ponto&gt;" visibility="private"/>
+        <Field name="nPontos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="caminho"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPontos" returnType="ArrayList&lt;Ponto&gt;" visibility="public"/>
+        <Method name="getnPontos" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TransformacaoController" package="projetocg.C" visibility="public" xPosition="610.0" yPosition="741.0">
+      <Fields>
+        <Field name="t" type="Transformacao" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="translacaoController" returnType="ArrayList&lt;Ponto&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="p"/>
+        </Method>
+        <Method name="escalaController" returnType="ArrayList&lt;Ponto&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="p"/>
+        </Method>
+        <Method name="rotacaoController" returnType="ArrayList&lt;Ponto&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Ponto&gt;" name="p"/>
+        </Method>
+        <Method name="verificaIntervalo" returnType="int" visibility="private">
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+          <Argument type="String" name="msg"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="projetocg.M.Arquivo" target="projetocg.M.Ponto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="arqController" source="projetocg.V.Tela" target="projetocg.C.ArquivoController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="projetocg.C.TransformacaoController" target="projetocg.M.Ponto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="projetocg.C.ArquivoController" target="projetocg.M.Ponto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="projetocg.M.Transformacao" target="projetocg.M.Ponto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="projetocg.M.Operacao" target="projetocg.M.Ponto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pontosNovos" source="projetocg.V.Bresenham" target="projetocg.M.Ponto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Ponto&gt;"/>
+    <HasRelation name="op" source="projetocg.M.Transformacao" target="projetocg.M.Operacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="t" source="projetocg.C.TransformacaoController" target="projetocg.M.Transformacao" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="arq" source="projetocg.C.ArquivoController" target="projetocg.M.Arquivo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pontosAtuais" source="projetocg.V.Tela" target="projetocg.M.Ponto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Ponto&gt;"/>
+    <HasRelation name="pontosIniciais" source="projetocg.V.Tela" target="projetocg.M.Ponto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Ponto&gt;"/>
+    <HasRelation name="pontos" source="projetocg.C.ArquivoController" target="projetocg.M.Ponto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Ponto&gt;"/>
+    <HasRelation name="pontos" source="projetocg.M.Arquivo" target="projetocg.M.Ponto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Ponto&gt;"/>
+    <UseRelation source="projetocg.V.Tela" target="projetocg.M.Ponto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="transfController" source="projetocg.V.Tela" target="projetocg.C.TransformacaoController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
